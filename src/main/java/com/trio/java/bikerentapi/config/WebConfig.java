@@ -15,8 +15,5 @@ public class WebConfig {
     @Bean
     BikeRepository bikeRepository() {
         return new DatabaseBikeRepository();
-
-        //if needed, switch to dummy implementation
-        //return new DummyBikeRepository();
     }
 }
