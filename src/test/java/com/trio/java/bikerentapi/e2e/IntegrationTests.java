@@ -1,5 +1,10 @@
 package com.trio.java.bikerentapi.e2e;
 
+import static org.hamcrest.Matchers.equalTo;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
+
 import org.hamcrest.Matchers;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,21 +13,16 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.TestPropertySource;
 import org.springframework.test.web.servlet.MockMvc;
 
-import static org.hamcrest.Matchers.equalTo;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
-
 @SpringBootTest
 @AutoConfigureMockMvc
 @TestPropertySource(locations = "classpath:test-application.properties")
-public class IntegrationTests {
+class IntegrationTests {
 
     @Autowired
     private MockMvc mockMvc;
 
     @Test
-    public void shouldReturnBikes() throws Exception {
+    void shouldReturnBikes() throws Exception {
         this.mockMvc.perform(
             get("/api/bikes")
         )
@@ -31,7 +31,7 @@ public class IntegrationTests {
     }
 
     @Test
-    public void shouldReturnBikeDetails() throws Exception {
+    void shouldReturnBikeDetails() throws Exception {
         int id = 1;
 
         this.mockMvc.perform(
@@ -43,7 +43,7 @@ public class IntegrationTests {
     }
 
     @Test
-    public void shouldReturnErrorForUnknownBike() throws Exception {
+    void shouldReturnErrorForUnknownBike() throws Exception {
         int id = 404;
         this.mockMvc.perform(
             get(String.format("/api/bikes/%s", id))

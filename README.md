@@ -13,6 +13,7 @@ Is a spring boot application that:
 * Apache maven 3.8.6
 * Spring boot 2.7.4
 * MySql 5.7
+* [Checkstyle for coding standards](https://checkstyle.sourceforge.io/)
 
 ### How to run the app locally
 

@@ -1,14 +1,13 @@
 package com.trio.java.bikerentapi.mapper;
 
 import com.trio.java.bikerentapi.data.Bike;
-import com.trio.java.bikerentapi.dto.BikeDTO;
-
-import java.util.stream.Collectors;
+import com.trio.java.bikerentapi.data.BikeImage;
+import com.trio.java.bikerentapi.dto.BikeDto;
 
 public class BikeMapper {
 
-    public BikeDTO fromBike(Bike bike){
-        return BikeDTO.builder()
+    public BikeDto fromBike(Bike bike) {
+        return BikeDto.builder()
                 .withId(bike.getId())
                 .withName(bike.getName())
                 .withType(bike.getType())
@@ -19,8 +18,8 @@ public class BikeMapper {
                 .withRatings(bike.getRatings())
                 .withImageUrls(
                         bike.getImageUrls().stream()
-                                .map(i -> i.getUrl())
-                                .collect(Collectors.toList())
+                                .map(BikeImage::getUrl)
+                                .toList()
                 )
                 .build();
     }
