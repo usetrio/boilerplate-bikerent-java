@@ -15,7 +15,7 @@ import lombok.Setter;
 @Entity
 @Table(name = "bike_images")
 public class BikeImage {
-    @Id
-    private long id;
-    private String url;
+  @Id
+  private long id;
+  private String url;
 }

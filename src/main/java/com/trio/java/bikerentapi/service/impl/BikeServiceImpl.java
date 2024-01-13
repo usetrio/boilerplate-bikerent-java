@@ -12,14 +12,14 @@ import org.springframework.stereotype.Service;
 @Service
 public class BikeServiceImpl implements BikeService {
 
-    @Autowired
-    BikeRepository bikeRepository;
+  @Autowired
+  BikeRepository bikeRepository;
 
-    public List<Bike> getAllBikes() {
-        return bikeRepository.getAllBikes();
-    }
+  public List<Bike> getAllBikes() {
+    return bikeRepository.getAllBikes();
+  }
 
-    public Optional<Bike> getBikeDetails(int id) {
-        return bikeRepository.getBikeDetails(id);
-    }
+  public Optional<Bike> getBikeDetails(int id) {
+    return bikeRepository.getBikeDetails(id);
+  }
 }

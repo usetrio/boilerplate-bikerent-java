@@ -5,7 +5,7 @@ import java.util.List;
 import java.util.Optional;
 
 public interface BikeRepository {
-    List<Bike> getAllBikes();
+  List<Bike> getAllBikes();
 
-    Optional<Bike> getBikeDetails(int id);
+  Optional<Bike> getBikeDetails(int id);
 }

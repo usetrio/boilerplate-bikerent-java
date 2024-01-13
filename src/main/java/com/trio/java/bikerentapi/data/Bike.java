@@ -21,18 +21,18 @@ import lombok.Setter;
 @Entity
 @Table(name = "bikes")
 public class Bike {
-    @Id
-    private int id;
-    private String name;
-    private String type;
-    private int bodySize;
-    private int maxLoad;
-    private double rate;
-    private String description;
-    private double ratings;
+  @Id
+  private int id;
+  private String name;
+  private String type;
+  private int bodySize;
+  private int maxLoad;
+  private double rate;
+  private String description;
+  private double ratings;
 
-    @OneToMany(fetch = FetchType.LAZY)
-    @JoinColumn(name = "bike_id")
-    private List<BikeImage> imageUrls;
+  @OneToMany(fetch = FetchType.LAZY)
+  @JoinColumn(name = "bike_id")
+  private List<BikeImage> imageUrls;
 
 }

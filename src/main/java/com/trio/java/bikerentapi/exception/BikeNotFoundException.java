@@ -1,8 +1,7 @@
 package com.trio.java.bikerentapi.exception;
 
-import org.springframework.http.HttpStatus;
-import org.springframework.web.bind.annotation.ResponseStatus;
-
-@ResponseStatus(code = HttpStatus.NOT_FOUND, reason = "Bike not found")
-public class BikeNotFoundException extends RuntimeException{
+public class BikeNotFoundException extends RuntimeException {
+  public BikeNotFoundException() {
+    super("Bike with id %s was not found.");
+  }
 }

@@ -8,16 +8,16 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 public class DatabaseBikeRepository implements BikeRepository {
 
-    @Autowired
-    private MySqlBikeRepository db;
+  @Autowired
+  private MySqlBikeRepository db;
 
-    @Override
-    public List<Bike> getAllBikes() {
-        return db.findAll();
-    }
+  @Override
+  public List<Bike> getAllBikes() {
+    return db.findAll();
+  }
 
-    @Override
-    public Optional<Bike> getBikeDetails(int id) {
-        return db.findById(id);
-    }
+  @Override
+  public Optional<Bike> getBikeDetails(int id) {
+    return db.findById(id);
+  }
 }

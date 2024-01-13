@@ -1,6 +1,8 @@
 package com.trio.java.bikerentapi.config;
 
+import com.trio.java.bikerentapi.repository.BikeRentalRepository;
 import com.trio.java.bikerentapi.repository.BikeRepository;
+import com.trio.java.bikerentapi.repository.impl.database.DatabaseBikeRentalRepository;
 import com.trio.java.bikerentapi.repository.impl.database.DatabaseBikeRepository;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
@@ -12,8 +14,13 @@ import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 @ComponentScan(basePackages = "com.trio.java.bikerentapi")
 public class WebConfig {
 
-    @Bean
-    BikeRepository bikeRepository() {
-        return new DatabaseBikeRepository();
-    }
+  @Bean
+  BikeRepository bikeRepository() {
+    return new DatabaseBikeRepository();
+  }
+
+  @Bean
+  BikeRentalRepository bikeRentalRepository() {
+    return new DatabaseBikeRentalRepository();
+  }
 }
