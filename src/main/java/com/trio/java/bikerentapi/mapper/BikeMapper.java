@@ -2,7 +2,7 @@ package com.trio.java.bikerentapi.mapper;
 
 import com.trio.java.bikerentapi.data.Bike;
 import com.trio.java.bikerentapi.data.BikeImage;
-import com.trio.java.bikerentapi.dto.BikeDto;
+import com.trio.java.bikerentapi.dto.response.BikeResponse;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 
@@ -10,8 +10,8 @@ import org.springframework.stereotype.Component;
 @Component
 public class BikeMapper {
 
-  public BikeDto fromBike(Bike bike) {
-    return BikeDto.builder()
+  public BikeResponse fromBike(Bike bike) {
+    return BikeResponse.builder()
         .withId(bike.getId())
         .withName(bike.getName())
         .withType(bike.getType())

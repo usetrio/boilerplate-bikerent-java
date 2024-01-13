@@ -5,19 +5,20 @@ import com.trio.java.bikerentapi.dto.response.BikeRentalResponse;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 
-@Component
 @RequiredArgsConstructor
+@Component
 public class BikeRentalMapper {
 
   private final BikeMapper bikeMapper;
 
   public BikeRentalResponse fromBikeRental(BikeRental bikeRental) {
-    return new BikeRentalResponse(
-        bikeRental.getId(),
-        bikeMapper.fromBike(bikeRental.getBike()),
-        bikeRental.getTotalFee(),
-        bikeRental.getStartDate(),
-        bikeRental.getEndDate()
-    );
+    return BikeRentalResponse
+        .builder()
+        .withId(bikeRental.getId())
+        .withRentedBike(bikeMapper.fromBike(bikeRental.getBike()))
+        .withTotalFee(bikeRental.getTotalFee())
+        .withStartDate(bikeRental.getStartDate())
+        .withEndDate(bikeRental.getEndDate())
+        .build();
   }
 }
